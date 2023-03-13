@@ -5,7 +5,7 @@ import math
 root = Tk()
 root.title("kalkulator")
 root["bg"] = "#EFDCF9"
-root.geometry("310x400")
+root.geometry("410x500")
 
 myfont  = font.Font(size=15)
 
@@ -92,7 +92,7 @@ def samadengan():
         e.insert(0,n_awal - float(nomor_akhir))
     elif mtk == "pembagian":
         try:
-            hitung = n_awal * float(nomor_akhir)
+            hitung = n_awal / float(nomor_akhir)
             hasil= round(hitung,5)
             e.insert(0,hasil)
         except ZeroDivisionError:
