@@ -96,7 +96,7 @@ def samadengan():
             hasil= round(hitung,5)
             e.insert(0,hasil)
         except ZeroDivisionError:
-            e.insert(0,"maaf bilangan tidak bisa dibagi 0")
+            e.insert(0,"Cannot divide by zero")
     elif mtk == "perkalian":
         e.insert(0,n_awal * float(nomor_akhir))
     elif mtk == "sisabagi":
