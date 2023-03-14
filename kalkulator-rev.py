@@ -5,7 +5,7 @@ import math
 root = Tk()
 root.title("kalkulator")
 root["bg"] = "#EFDCF9"
-root.geometry("410x500")
+root.geometry("340x420")
 
 myfont  = font.Font(size=15)
 
@@ -87,9 +87,13 @@ def samadengan():
     nomor_akhir = e.get()
     e.delete(0,END)
     if mtk == "penjumlahan":
-        e.insert(0,n_awal + float(nomor_akhir))
+        hitung = n_awal + float(nomor_akhir) 
+        hasil= round(hitung,5)
+        e.insert(0,hasil)
     elif mtk == "pengurangan":
-        e.insert(0,n_awal - float(nomor_akhir))
+        hitung = n_awal - float(nomor_akhir) 
+        hasil= round(hitung,5)
+        e.insert(0,hasil)    
     elif mtk == "pembagian":
         try:
             hitung = n_awal / float(nomor_akhir)
@@ -98,10 +102,14 @@ def samadengan():
         except ZeroDivisionError:
             e.insert(0,"Cannot divide by zero")
     elif mtk == "perkalian":
-        e.insert(0,n_awal * float(nomor_akhir))
+        hitung = n_awal * float(nomor_akhir) 
+        hasil= round(hitung,5)
+        e.insert(0,hasil)
     elif mtk == "sisabagi":
-        e.insert(0,n_awal % float(nomor_akhir))
-    
+        hitung = n_awal % float(nomor_akhir) 
+        hasil= round(hitung,5)
+        e.insert(0,hasil)    
+
 def desimal():
     current = e.get() 
     if '.' not in current:
@@ -117,41 +125,39 @@ btn7  = Button(root,text="7",padx = 30,bg="#ECE3F0",fg="purple", pady = 20,comma
 btn8  = Button(root,text="8",padx = 30,bg="#ECE3F0",fg="purple", pady = 20,command=lambda:cetak(8))
 btn9  = Button(root,text="9",padx = 30,bg="#ECE3F0",fg="purple", pady = 20,command=lambda:cetak(9))
 btn0  = Button(root,text="0",padx = 30,bg="#ECE3F0",fg="purple", pady = 20,command=lambda:cetak(0))
-hap1 = Button(root,text="<-",padx = 30,bg="#7954A1",fg="white", pady = 20,command=hapusSatu)
+hap1 = Button(root,text="del",padx = 25,bg="#7954A1",fg="white", pady = 20,command=hapusSatu)
 tam = Button(root,text="+",padx = 30,bg="#C55FFC",fg="white", pady = 20,command=tambah)
 kur = Button(root,text="-",padx = 30,bg="#C55FFC",fg="white", pady = 20,command=kurang)
 bag  = Button(root,text="/",padx = 30,bg="#C55FFC",fg="white", pady = 20,command=bagi)
 kal = Button(root,text="x",padx = 30,bg="#C55FFC",fg="white", pady = 20,command=kali)
 pang = Button(root,text="x2",padx = 30,bg="#C55FFC",fg="white", pady = 20,command=pangkat)
-ak2 = Button(root,text="sq2",padx = 30,bg="#C55FFC",fg="white", pady = 20,command=akar)
+ak2 = Button(root,text="sq2",padx = 25,bg="#C55FFC",fg="white", pady = 20,command=akar)
 sisbag = Button(root,text="%",padx = 30,bg="#C55FFC",fg="white", pady = 20,command=sisabagi)
 hap = Button(root,text="C",padx = 30,bg="#7954A1",fg="white", pady = 20,command=hapus)
-equal = Button(root,text="=",padx = 150,bg="#7954A1", fg="white",pady = 20,command=samadengan)
+equal = Button(root,text="=",padx = 70,bg="#7954A1", fg="white",pady = 20,command=samadengan)
 dec = Button(root,text=".",padx = 30,bg="#C55FFC",fg="white", pady = 20,command=desimal)
 
 
-btn.grid(row=1,column=0,pady=2)
-btn2.grid(row=1,column=1,pady=2)
-btn3.grid(row=1,column=2,pady=2)
+btn7.grid(row=1,column=0,pady=2)
+btn8.grid(row=1,column=1,pady=2)
+btn9.grid(row=1,column=2,pady=2)
 btn4.grid(row=2,column=0,pady=2)
 btn5.grid(row=2,column=1,pady=2)
 btn6.grid(row=2,column=2,pady=2)
-btn7.grid(row=3,column=0,pady=2)
-btn8.grid(row=3,column=1,pady=2)
-btn9.grid(row=3,column=2,pady=2)
+btn.grid(row=3,column=0,pady=2)
+btn2.grid(row=3,column=1,pady=2)
+btn3.grid(row=3,column=2,pady=2)
 btn0.grid(row=4,column=1,pady=2)
 
 tam.grid(row=1,column=3,pady=2)
 kur.grid(row=2,column=3,pady=2)
 bag.grid(row=3,column=3,pady=2)
 kal.grid(row=4,column=3,pady=2)
-hap.grid(row=4,column=0,pady=2)
-equal.grid(row=6,column=0,columnspan=4)
-pang.grid(row =5,column=0,pady=2)
-ak2.grid(row =5,column=1,pady=2)
-sisbag.grid(row =4,column=2,pady=2)
+hap.grid(row=5,column=0,pady=2)
+pang.grid(row=4,column=0, pady=2)
+equal.grid(row=5,column=1, columnspan=2)
 hap1.grid(row=5, column=3, pady=2)
-dec.grid(row=5, column=2, pady=2)
+dec.grid(row=4, column=2, pady=2)
 
 
 root.mainloop()
